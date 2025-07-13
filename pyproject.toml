@@ -1,0 +1,39 @@
+[project]
+name = "certbot-dns-aliyun"
+version = "0.1.0"
+description = ""
+authors = [{name = "kinami0331"}]
+readme = "README.rst"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "certbot (>=4.0.0,<5.0.0)",
+    "alibabacloud-tea-openapi (>=0.3.16,<0.4.0)",
+    "alibabacloud-alidns20150109 (>=3.5.9,<4.0.0)"
+]
+
+[project.entry-points."certbot.plugins"]
+dns-aliyun = "certbot_dns_aliyun.dns_aliyun:Authenticator"
+
+[tool.poetry]
+packages = [{include = "certbot_dns_aliyun"}]
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.12.3"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
+lines-between-types = 1
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+line-ending = "lf"
+skip-magic-trailing-comma = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
