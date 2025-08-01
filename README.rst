@@ -12,7 +12,7 @@ Credentials
 -----------
 .. code-block:: ini
 
-    dns_aliyun_access_key = <your access key>
+    dns_aliyun_access_key_id = <your access key>
     dns_aliyun_access_key_secret = <your access key secret>
 
 Usage
@@ -20,4 +20,7 @@ Usage
 
 .. code-block:: bash
 
-   certbot certonly --authenticator=dns-aliyun --dns-aliyun-credentials '/path/to/credentials.ini' -d '*.example.com'
+   certbot certonly \
+      --authenticator dns-aliyun \
+      --dns-aliyun-credentials '/path/to/credentials.ini' \
+      -d '*.example.com'
